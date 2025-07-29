@@ -13,6 +13,10 @@ class Program
         video2.AddComment(new Comment("David", "Clear explanation."));
         videos.Add(video2);
 
+        Video video3 = new Video("ASP.NET Core", "Web Dev", 720);
+        video3.AddComment(new Comment("Emmanuel", "Loved the MVC part!"));
+        video3.AddComment(new Comment("Azalius", "Need more examples."));
+        videos.Add(video3);
         foreach (Video video in videos)
         {
             video.DisplayInfo();
