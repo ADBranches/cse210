@@ -28,43 +28,42 @@ public class GoalManager
     }
 
     private void CreateGoal()
-    {
-        Console.Write("Goal type (1-Simple, 2-Eternal, 3-Checklist): ");
-        string type = Console.ReadLine();
-
-        Console.Write("Name: ");
-        string name = Console.ReadLine();
-        Console.Write("Description: ");
-        string desc = Console.ReadLine();
-        Console.Write("Points: ");
-        int points = int.Parse(Console.ReadLine());
-
-
-        switch (type)
         {
-            case "1":
-                _goals.Add(new SimpleGoal(name, desc, points));
-                break;
-            case "2":
-                _goals.Add(new EternalGoal(name, desc, points));
-                break;
-            case "3":
-                Console.Write("Target completions: ");
-                int target = int.Parse(Console.ReadLine());
-                Console.Write("Bonus points: ");
-                int bonus = int.Parse(Console.ReadLine());
-                _goals.Add(new ChecklistGoal(name, desc, points, target, bonus));
-                break;
-            case "4":
-                Console.Write("Points to *deduct*: ");
-                int points = -int.Parse(Console.ReadLine());
-                _goals.Add(new SimpleGoal(name, desc, points));
-                break;
-            default:
-                Console.WriteLine("Invalid goal type.");
-                break;
+            Console.Write("Goal type (1-Simple, 2-Eternal, 3-Checklist, 4-Negative): ");
+            string type = Console.ReadLine();
+
+            Console.Write("Name: ");
+            string name = Console.ReadLine();
+            Console.Write("Description: ");
+            string desc = Console.ReadLine();
+            Console.Write("Points: ");
+            int points = int.Parse(Console.ReadLine()); 
+
+            switch (type)
+            {
+                case "1":
+                    _goals.Add(new SimpleGoal(name, desc, points));
+                    break;
+                case "2":
+                    _goals.Add(new EternalGoal(name, desc, points));
+                    break;
+                case "3":
+                    Console.Write("Target completions: ");
+                    int target = int.Parse(Console.ReadLine());
+                    Console.Write("Bonus points: ");
+                    int bonus = int.Parse(Console.ReadLine());
+                    _goals.Add(new ChecklistGoal(name, desc, points, target, bonus));
+                    break;
+                case "4":
+                    Console.Write("Points to *deduct*: ");
+                    int negativePoints = -int.Parse(Console.ReadLine());  
+                    _goals.Add(new SimpleGoal(name, desc, negativePoints));
+                    break;
+                default:
+                    Console.WriteLine("Invalid goal type.");
+                    break;
+            }
         }
-    }
 
     private void ListGoals()
     {
