@@ -1,2 +1,2 @@
 0
-SimpleGoal:edwin,i wanna meet with edwin the great.,6,False
+SimpleGoal:No Soda,Avoid drinking soda today,-50,False
