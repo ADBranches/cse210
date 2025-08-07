@@ -75,7 +75,7 @@ public class GoalManager
         }
         int index = int.Parse(Console.ReadLine()) - 1;
         _goals[index].RecordEvent();
-        _score += _goals[index]._points;
+        _score += _goals[index].GetPoints();  
         Console.WriteLine($"Event recorded! Score: {_score}");
     }
 
@@ -109,16 +109,18 @@ public class GoalManager
                 switch (type)
                 {
                     case "SimpleGoal":
-                        _goals.Add(new SimpleGoal(data[0], data[1], int.Parse(data[2]))
-                        { _isComplete = bool.Parse(data[3]) });
+                        var simpleGoal = new SimpleGoal(data[0], data[1], int.Parse(data[2]));
+                        simpleGoal.SetCompletionStatus(bool.Parse(data[3]));
+                        _goals.Add(simpleGoal);
                         break;
                     case "EternalGoal":
                         _goals.Add(new EternalGoal(data[0], data[1], int.Parse(data[2])));
                         break;
                     case "ChecklistGoal":
-                        _goals.Add(new ChecklistGoal(data[0], data[1], int.Parse(data[2]),
-                            int.Parse(data[4]), int.Parse(data[3]))
-                        { _amountCompleted = int.Parse(data[5]) });
+                        var checklistGoal = new ChecklistGoal(data[0], data[1], int.Parse(data[2]), 
+                        int.Parse(data[4]), int.Parse(data[3]));
+                        checklistGoal.SetAmountCompleted(int.Parse(data[5]));
+                        _goals.Add(checklistGoal);
                         break;
                 }
             }
