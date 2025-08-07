@@ -39,6 +39,7 @@ public class GoalManager
         Console.Write("Points: ");
         int points = int.Parse(Console.ReadLine());
 
+
         switch (type)
         {
             case "1":
@@ -53,6 +54,14 @@ public class GoalManager
                 Console.Write("Bonus points: ");
                 int bonus = int.Parse(Console.ReadLine());
                 _goals.Add(new ChecklistGoal(name, desc, points, target, bonus));
+                break;
+            case "4":
+                Console.Write("Points to *deduct*: ");
+                int points = -int.Parse(Console.ReadLine());
+                _goals.Add(new SimpleGoal(name, desc, points));
+                break;
+            default:
+                Console.WriteLine("Invalid goal type.");
                 break;
         }
     }
