@@ -1,9 +1,8 @@
-using System;
-
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
-        Console.WriteLine("Hello World! This is the EternalQuest Project.");
+        Console.WriteLine("🌟 Eternal Quest Program 🌟");
+        new GoalManager().Start();
     }
 }
