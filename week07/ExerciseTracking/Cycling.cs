@@ -11,7 +11,6 @@ public class Cycling : Activity
 
     public override double GetDistance()
     {
-        // distance = speed * time (hours)
         return _speedMph * LengthMinutes / 60.0;
     }
 
@@ -22,7 +21,6 @@ public class Cycling : Activity
 
     public override double GetPace()
     {
-        // Pace = 60 / speed
         return 60.0 / _speedMph;
     }
 }
