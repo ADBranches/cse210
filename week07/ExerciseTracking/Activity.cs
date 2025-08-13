@@ -21,19 +21,14 @@ public abstract class Activity
         get { return _lengthMinutes; }
     }
 
-    // Abstract methods to be overridden in derived classes
-    public abstract double GetDistance();  // in miles
-    public abstract double GetSpeed();     // in miles per hour (mph)
-    public abstract double GetPace();      // in minutes per mile
+    public abstract double GetDistance();  
+    public abstract double GetSpeed();    
+    public abstract double GetPace();      
 
-    // Summary method common for all activities
     public virtual string GetSummary()
     {
-        // Format date as "dd MMM yyyy"
         string dateStr = _date.ToString("dd MMM yyyy");
-        // Name of the derived class (Running, Cycling, Swimming)
         string activityType = this.GetType().Name;
-        // Length in minutes
         int length = _lengthMinutes;
 
         return $"{dateStr} {activityType} ({length} min) - Distance {GetDistance():F1} miles, Speed {GetSpeed():F1} mph, Pace: {GetPace():F1} min per mile";
